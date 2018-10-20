@@ -19,5 +19,10 @@
 </ul>
 
 <app-input-button-unit></app-input-button-unit>
+<ul>
+  <li *ngFor="let todoItem of todoList">
+    <app-todo-item [item]="todoItem"></app-todo-item>
+  </li>
+</ul>
 
 <router-outlet></router-outlet>
