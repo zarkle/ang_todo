@@ -9,7 +9,7 @@ import { TodoItem } from '../interfaces/todo-item';
 export class TodoItemComponent implements OnInit {
   @Input() item: TodoItem;
   @Output() remove: EventEmitter<TodoItem> = new EventEmitter();
-  isComplete: boolean = false;
+  @Output() update: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -21,6 +21,9 @@ export class TodoItemComponent implements OnInit {
   }
 
   completeItem() {
-    this.isComplete = !this.isComplete;
+    this.update.emit({
+      item: this.item,
+      changes: {completed: !this.item.completed}
+    });
   }
 }
