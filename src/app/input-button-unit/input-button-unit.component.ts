@@ -12,4 +12,5 @@ export class InputButtonUnitComponent implements OnInit {
   ngOnInit() {
   }
 
+  title = 'Hello World';
 }
